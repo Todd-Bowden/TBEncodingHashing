@@ -9,7 +9,7 @@ import Foundation
 
 public extension String {
     
-    func hash(length: Int = 32) throws -> String {
+    func hash(length: Int? = nil) throws -> String {
         try self.utf8data().hash(length: length)
     }
         

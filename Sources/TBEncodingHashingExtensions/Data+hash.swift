@@ -14,7 +14,7 @@ public extension Data {
         Data(SHA256.hash(data: self))
     }
 
-    func hash(length: Int?) -> String {
+    func hash(length: Int? = nil) -> String {
         let string = self.sha256.hex
         if let length = length {
             return String(string.prefix(length))

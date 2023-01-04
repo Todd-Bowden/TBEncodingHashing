@@ -9,7 +9,7 @@ import Foundation
 
 public extension Encodable {
     
-    func jsonHash(length: Int = 32) -> String {
+    func jsonHash(length: Int? = nil) -> String {
         let encoder = JSONEncoder()
         encoder.outputFormatting = .sortedKeys
         guard let jsonData = try? encoder.encode(self) else { return "" }
