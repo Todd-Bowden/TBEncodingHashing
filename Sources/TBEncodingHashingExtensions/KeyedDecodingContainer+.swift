@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension KeyedDecodingContainer {
+public extension KeyedDecodingContainer {
     
     func decodeString(key: Key, default: String = "") -> String {
         (try? self.decodeIfPresent(String.self, forKey: key)) ?? `default`
