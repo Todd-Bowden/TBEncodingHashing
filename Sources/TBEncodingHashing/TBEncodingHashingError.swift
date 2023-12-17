@@ -7,6 +7,6 @@
 
 import Foundation
 
-public enum TBEncodingHashingExtensionsError: Error {
+public enum TBEncodingHashingError: Error {
     case utf8EncodingError
 }

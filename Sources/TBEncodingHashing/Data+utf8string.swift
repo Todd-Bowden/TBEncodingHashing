@@ -11,7 +11,7 @@ public extension Data {
     
     func utf8string() throws -> String {
         guard let string = String(data: self, encoding: .utf8) else {
-            throw TBEncodingHashingExtensionsError.utf8EncodingError
+            throw TBEncodingHashingError.utf8EncodingError
         }
         return string
     }
