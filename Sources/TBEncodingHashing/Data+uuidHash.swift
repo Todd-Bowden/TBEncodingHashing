@@ -10,17 +10,23 @@ import Foundation
 public extension Data {
     
     var uuidHash: String {
-        var hash = [UInt8](self.sha256)
-        hash[6] = hash[6] | 0b01000000
-        hash[6] = hash[6] & 0b01001111
-        hash[8] = hash[8] | 0b10000000
-        hash[8] = hash[8] & 0b10111111
+        self.sha256.uuidString
+    }
+    
+    var uuidString: String {
+        var data = [UInt8](self)
+        while data.count < 16 { data.append(0) }
+        data[6] = data[6] | 0b01000000
+        data[6] = data[6] & 0b01001111
+        data[8] = data[8] | 0b10000000
+        data[8] = data[8] & 0b10111111
         return
-            Data(hash[0...3]).hex + "-" +
-            Data(hash[4...5]).hex + "-" +
-            Data(hash[6...7]).hex + "-" +
-            Data(hash[8...9]).hex + "-" +
-            Data(hash[10...15]).hex
+            Data(data[0...3]).hex + "-" +
+            Data(data[4...5]).hex + "-" +
+            Data(data[6...7]).hex + "-" +
+            Data(data[8...9]).hex + "-" +
+            Data(data[10...15]).hex
+        
     }
     
 }
